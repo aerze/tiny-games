@@ -1,0 +1,19 @@
+{
+  "name": "tiny-games",
+  "version": "1.0.0",
+  "description": "tiny games on the web",
+  "main": "index.js",
+  "source": "src/index.html",
+  "browserslist": "last 2 versions, not dead",
+  "repository": "https://github.com/aerze/tiny-games",
+  "author": "Abby <abby@mythril.co>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
