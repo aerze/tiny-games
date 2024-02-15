@@ -1,10 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <title>Tiny Games</title>
-  </head>
-  <body>
-    <h1>Hello, World!</h1>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Tiny Games</title>
+  <script src="main.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Grandstander:ital,wght@0,100..900;1,100..900&family=Major+Mono+Display&family=Playpen+Sans:wght@100..800&family=Titan+One&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css" />
+  <link rel="stylesheet" href="main.scss" />
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="main">
+      <div class="ui-layer">
+        <div class="row">
+          <div class="timer major-mono">
+            <span class="value">0000</span>
+            <span class="label">SEC</span>
+          </div>
+          <div class="score major-mono">
+            <span class="value">0000</span>
+            <span class="label">PTS</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="timer-bar">
+            <progress class="timer-progress" max="100" value="75"></progress>
+          </div>
+        </div>
+        <div class="shout playpen-sans-800">
+          <h1 class="shout-text">CHOP IT</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
