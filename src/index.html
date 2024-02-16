@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <title>Tiny Games</title>
-  <script src="main.js"></script>
+  <script src="main.js" type="module"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +37,14 @@
           </div>
         </div>
         <div class="shout playpen-sans-800">
-          <h1 class="shout-text">CHOP IT</h1>
+          <h1 id="shout" class="shout-text"></h1>
+        </div>
+      </div>
+      <div id="game" class="game-layer">
+        <div id="menu" class="menu scene center">
+          <div class="row center">
+            <button id="start" class="button">START</button>
+          </div>
         </div>
       </div>
     </div>
