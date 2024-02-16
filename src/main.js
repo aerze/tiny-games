@@ -1,5 +1,5 @@
 import anime from 'animejs/lib/anime.es.js';
-import { Timer, get } from './helpers';
+import { Timer, get, randomInt } from './helpers';
 import { audio, div, h, img } from './element';
 import { Scene } from './scene';
 import slapperURL from './slapper.png';
@@ -37,6 +37,8 @@ class Menu extends Scene {
 class SlapGame extends Scene {
     constructor() {
         super();
+        
+        this.lastSecond = 0;
         this.loudHit = audio('slap-audio', loudHitURL, 0.25);
         this.slapTarget = div('slap-target');
         this.slapperImage = img('slapper-image', slapperURL);
@@ -60,53 +62,45 @@ class SlapGame extends Scene {
         this.loudHit.play();
     }
 
-    /** @type {Touch} */
-    touch = null;
-
     create() {
-
+        shout("SLAP!!")
+        this.lastSecond = Date.now();
         this.container.addEventListener('click', (e) => {
             e.preventDefault();
-            this.slapper.style.left = `${e.clientX - 50}px`
-            this.slapper.style.top = `${e.clientY - 50}px`
+            this.slapper.style.left = `${e.clientX - 25}px`
+            this.slapper.style.top = `${e.clientY - 25}px`
             this.slapperImage.classList.add('down');
             this.playHit();
             setTimeout(() => {
                 this.slapperImage.classList.remove('down');
             }, 50);
         })
-        // this.container.addEventListener('touchmove', (event) => {
-        //     console.log('touch detected');
-        //     this.touch = event.touches[0];
-        // })
     }
 
     destroy() {}
 
     update() {
-        // get cursor position
-        // if (this.touch) {
-        //     this.slapper.style.left = `${this.touch.clientX - 50}px`
-        //     this.slapper.style.top = `${this.touch.clientY - 50}px`
-        //     shout(`${this.touch.clientX}, ${this.touch.clientY}`);
-        // }
-        // apply position to element
-
-
+        const now = Date.now();
+        if ((now - this.lastSecond) > 1000) {
+            this.lastSecond = now;
+            this.slapTarget.style.left = `${randomInt(0, 300)}px`;
+            this.slapTarget.style.top = `${randomInt(0, 500)}px`;
+        }
     }
 }
 
 const MenuScene = new Menu();
 const SlapScene = new SlapGame();
 
-MenuScene.delete();
-SlapScene.start();
+// THIS IS A SHORTCUT
+// MenuScene.delete();
+// SlapScene.start();
 
-// startButton.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     MenuScene.start();
-//     startButton.remove();
-// })
+startButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    MenuScene.start();
+    startButton.remove();
+})
 
 
 // shoutText.style.opacity = 0;

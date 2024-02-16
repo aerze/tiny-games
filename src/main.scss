@@ -18,7 +18,7 @@ html, body {
   position: relative;
   width: 400px;
   height: 600px;
-  border: 1px solid rgb(255, 0, 128);
+  // border: 1px solid rgb(255, 0, 128);
   box-sizing: border-box;
 
   background: white;
@@ -54,8 +54,12 @@ html, body {
 
 .timer-bar {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   .timer-progress {
-    width: 100%;
+    width: 80vw;
     height: 2rem;
   }
 }
@@ -102,7 +106,9 @@ html, body {
   flex-direction: column;
 
   .slap-target {
-    position: absolute;
+    position: relative;
+    left: 0;
+    top: 0;
     width: 100px;
     height: 100px;
     background: pink;
@@ -112,9 +118,11 @@ html, body {
     position: fixed;
     left: 0;
     top: 0;
-    width: 100px;
-    height: 100px;
-    border: 1px solid red;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 0, 0, 0.05);
+    border: 1px solid rgba(255, 0, 0, 0.50);
+    border-radius: 50%;
 
     .slapper-image {
       transform: rotate(370deg) translate(-25px, 35px);
